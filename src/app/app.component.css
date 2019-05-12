@@ -1,0 +1,32 @@
+.mat-elevation-z8 {
+  padding: 30px;
+  background-color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+form {
+  margin-top: 20px;
+
+}
+
+mat-form-field {
+  width: 100%;
+  /* margin-right: 40px; */
+}
+
+mat-card {
+  margin: 12px 0;
+}
+
+mat-icon {
+  margin: 5px;
+}
+
+button {
+  margin-right: 12px;
+  min-width: 15%;
+}
