@@ -2,7 +2,7 @@
 
   <h1>Simple Todo App</h1>
 
-  <mat-toolbar *ngIf="errMessage">{{errMessage}}</mat-toolbar>
+  <mat-toolbar color="accent" *ngIf="errMessage">{{ errMessage }}</mat-toolbar>
 
   <form [formGroup]="addTodoForm" novalidate (ngSubmit)="onSubmit()">
     <mat-form-field>
@@ -15,7 +15,7 @@
 
     <button mat-raised-button color="primary" type="submit">
       <mat-icon>add_circle</mat-icon>
-      Add Todo
+      Add
     </button>
   </form>
 
@@ -34,11 +34,11 @@
 
     <button mat-raised-button color="primary" (click)="remove()">
       <mat-icon>remove_circle</mat-icon>
-      Remove Last
+      Remove
     </button>
     <button mat-raised-button color="primary" (click)="clear()">
       <mat-icon>clear_all</mat-icon>
-      Clear All
+      Clear
     </button>
   </mat-list>
 </div>

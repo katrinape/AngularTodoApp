@@ -14,10 +14,8 @@ export class AppComponent {
   });
 
   todos = [
-    { title: 'Todo 1', description: 'Desc 1' },
-    { title: 'Todo 2', description: 'Desc 2' },
-    { title: 'Todo 3', description: 'Desc 3' },
-    { title: 'Todo 4', description: 'Desc 4' }
+    { title: 'Wymiana opon', description: 'Mechanik ma czas o 18' },
+    { title: 'Wizyta u fryzjera', description: 'Godz. 13' }
   ];
 
   errMessage: string = '';
@@ -25,7 +23,7 @@ export class AppComponent {
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   onSubmit() {
-    const url = 'http://localhost:3000/validateTodo';
+    const url = 'http://localhost:5000/validateTodo';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const options = { headers: headers };
     const todo = {
@@ -33,15 +31,15 @@ export class AppComponent {
       description: this.addTodoForm.controls['description'].value
     };
 
-    this.http.post(url, todo, options).subscribe(
+    this.http.post(url, todo, { ...options, responseType: 'text' }).subscribe(
       res => {
-        console.log(res)
+        console.log(res);
         this.todos.push(todo);
         this.addTodoForm.reset();
         this.errMessage = '';
       },
       err => {
-        console.log(err);
+        console.log('Error: ', err);
         this.errMessage = err.error;
       }
     )
